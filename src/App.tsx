@@ -4,33 +4,31 @@ import './App.css';
 
 function App() {
 
-  let 회원 : (number | string | boolean) = 123;
-  let 회원들 : (number | string )[] = [1, '2', 3];
-  let 오브젝트 : {a : string | number} = { a : '123' };
-
-  let 이름 : any;
-  이름 = 123;
-  이름 = {};
-
-  let 변수1: string = 이름;
-
-  let user: string = 'kim';
-  let age:(undefined | number) = undefined;
-  let married:boolean = false;
-  let 철수:(string|undefined|number|boolean)[] = [user, age, married];
-
-  let 학교 : {
-    score : (string | boolean | number)[],
-    teacher : string,
-    friend: (string | object)[] | string
-  } = {
-    score : [100, 97, 84],
-    teacher : 'Phil',
-    friend : 'John'
+  const 함수 = (이름?:string) : void => {
+    if(이름){
+      console.log('안녕하세요 홍길동')
+    }else{
+      console.log('이름이 없습니다.')
+    }
   }
 
-  학교.score[4] = false;
-  학교.friend = ['Lee', 학교.teacher]
+  const 함수2 = (param: string | number) :number => {    
+    return param.toString().length
+  }
+
+  const 함수3 = (월소득:number, 집보유여부:boolean, 매력점수:string): string | void => {
+    let 점수 = Math.trunc(월소득 / 10000);
+
+    if(집보유여부) 점수 += 500;
+
+    if(매력점수 === '상') 점수 += 100;
+
+    if(점수 >= 600)
+      return "결혼가능"
+
+
+
+  }
 
 
   
