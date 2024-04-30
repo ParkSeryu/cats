@@ -4,19 +4,34 @@ import './App.css';
 
 function App() {
 
-  let 회원들 = { member1 : 'kim', meber2 : 'park' }
-  
-  let 이름:string = 'jh'
-  let 나이:number = 26
-  let 출생지역:string = 'suwon';
+  let 회원 : (number | string | boolean) = 123;
+  let 회원들 : (number | string )[] = [1, '2', 3];
+  let 오브젝트 : {a : string | number} = { a : '123' };
 
-  const 숙제2 : {곡 : string, 가수이름:string} = {곡 : '야생화', 가수이름: '박효신'}
+  let 이름 : any;
+  이름 = 123;
+  이름 = {};
 
-  let project : {member : string[], days: number, started: boolean} = {
-    member : ['kim', 'park'],
-    days: 30,
-    started : true
+  let 변수1: string = 이름;
+
+  let user: string = 'kim';
+  let age:(undefined | number) = undefined;
+  let married:boolean = false;
+  let 철수:(string|undefined|number|boolean)[] = [user, age, married];
+
+  let 학교 : {
+    score : (string | boolean | number)[],
+    teacher : string,
+    friend: (string | object)[] | string
+  } = {
+    score : [100, 97, 84],
+    teacher : 'Phil',
+    friend : 'John'
   }
+
+  학교.score[4] = false;
+  학교.friend = ['Lee', 학교.teacher]
+
 
   
   return (
