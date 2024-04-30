@@ -4,38 +4,19 @@ import './App.css';
 
 function App() {
 
-  let type : string = 'kim';
-  let type0 : string[] = ['kim', 'park'];
-  let type1 : {name? : string} = {name : 'kim'}
-  let type2 : string | number  = 'kim'; // Union type
+  let 회원들 = { member1 : 'kim', meber2 : 'park' }
+  
+  let 이름:string = 'jh'
+  let 나이:number = 26
+  let 출생지역:string = 'suwon';
 
-  type 내타입 = string | number;
+  const 숙제2 : {곡 : string, 가수이름:string} = {곡 : '야생화', 가수이름: '박효신'}
 
-  let 이름 : 내타입 = 123;
-
-  function 함수(x : number) : number {
-    return x * 2
+  let project : {member : string[], days: number, started: boolean} = {
+    member : ['kim', 'park'],
+    days: 30,
+    started : true
   }
-
-  type Member = [number, boolean]; // 튜플 타입
-  let john:Member = ['123', true];
-
-  type ObjectMember = {
-    [key: string] : string // 모든 Object 속성 
-  }
-
-  let johnson : ObjectMember = { name : 'kim', age : '123'}
-
-  class User{
-    name: string
-    constructor(name: string){
-      this.name = name;
-    }
-  }
-
-
-
-
 
   
   return (
