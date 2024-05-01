@@ -4,34 +4,42 @@ import './App.css';
 
 function App() {
 
-  const 함수 = (이름?:string) : void => {
-    if(이름){
-      console.log('안녕하세요 홍길동')
+
+  const 클리닝함수 = (x: (number | string)[]) => {
+
+    const returnArray: number[] = [];
+    
+    x.map((ele) => {
+      if(typeof ele === 'number')
+        {
+          returnArray.push(ele)
+        }else{
+          returnArray.push(parseInt(ele))
+        }
+    })
+
+  }
+
+
+  const 만들함수 = ( x : {subject : string[] | string}) => {
+    if(typeof x.subject === 'string'){
+      return x.subject;
     }else{
-      console.log('이름이 없습니다.')
+      return x.subject[0];
     }
   }
 
-  const 함수2 = (param: string | number) :number => {    
-    return param.toString().length
-  }
 
-  const 함수3 = (월소득:number, 집보유여부:boolean, 매력점수:string): string | void => {
-    let 점수 = Math.trunc(월소득 / 10000);
+console.log(만들함수( { subject : 'math' }))  //이 경우 'math'를 return
+console.log(만들함수( { subject : ['science', 'art', 'korean'] })) //이 경우 'korean'을 return
+// console.log(만들함수( { hello : 'hi' } ))  //이 경우 타입에러 나면 됩니다 
 
-    if(집보유여부) 점수 += 500;
-
-    if(매력점수 === '상') 점수 += 100;
-
-    if(점수 >= 600)
-      return "결혼가능"
+  let array : number [] = [];
 
 
 
-  }
 
-
-  
+    
   return (
     <div className="App">
       <header className="App-header">
