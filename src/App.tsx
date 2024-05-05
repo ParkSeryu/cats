@@ -4,68 +4,58 @@ import './App.css';
 
 function App() {
 
-  type Animal = {name: string, age : number};
+  type 함수타입 = (a: string) => number;
 
-  let 동물: Animal = {name : 'kim', age : 20};
-
-  type Name = string;
-  type Age = number;
-  type Person = Name | Age;
-
-  type PositionX = {x: number};
-  type PositionY = {y : number};
-
-  type NewType = PositionX & PositionY;
-   
-  let position : NewType = { x : 10, y : 20};
-
-  type a = {x : number};
-  type b = {y : number};
-  let c : a & b = {x: 1, y: 2};
-
-  type HomeWorkType2 = {color? : 'string',
-  size : number,
-  readonly position : number[]
+  let 함수:함수타입 = function () {
+    return 10;
   }
 
-  let 테스트용변수 :HomeWorkType2 = {
-    size : 123,
-    position : [1,2,3]
+  type 숙제1 = {
+    name : string,
+    age: number,
+    plusOne(x : number) : number,
+    changeName : () => void
   }
 
-  let 이름 : 123;
-  let 접니다 : '대머리' | '솔로';
-  접니다 = '대머리';
-
-  var 자료 = {
-    name : 'kim' as 'kim'
-  }
-
-  function 내함수(a: 'kim') {
-
-  }
-
-  내함수(자료.name)
-  
-
-  function 함수(a: 'hello'){
-
+  let 회원정보 : 숙제1 = {
+    name : 'kim',
+    age: 30,
+    plusOne(a : number) : number {
+      return a + 1
+    },
+    changeName: () => {
+      console.log('안녕')
+    }
   }
   
-  함수('hello')
+  회원정보.plusOne(2);
 
-  type AnyTest  = '가위' | '바위' | '보'
+  
+  type CutZeroType = (x:string) => string;
 
-  function 함수2(x: '가위' | '바위' | '보') : AnyTest[]{
-    return ['가위']
+  const cutZero : CutZeroType = (x) => {
+    if(x.charAt(0) === '0'){
+      x = x.slice(1, x.length);
+    }
+
+    return x;
   }
-  
 
+  type ZeroDashType = (x: string) =>  number;
 
-  type Homework3 = { name : string, phone : number, email: string}
+  const removeDash: ZeroDashType = (x) => {
+    if(x.includes('-')){
+      x = x.replaceAll('-','');
+    }
+    return parseInt(x);
+  }
 
-  type Homework4 = Homework3 &  { aaa : boolean};
-  
+  const 만들함수 = (t1:string, t2:CutZeroType, t3:ZeroDashType) => {
+    console.log(t3(t2(t1)));
+  }
+
+  만들함수('010-1111-2222', cutZero, removeDash)
+
 
 
   return (
