@@ -2,63 +2,45 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-interface Square { color : string, width : number}
-
-interface Student{
-  name : string
-}
-
-interface Teacher extends Student{
-  age : number
-}
-
-
-
-interface Shop {
-  brand: string,
-  serialNumber: number,
-  model : string[]
-}
-
-
 function App() {
 
-  interface Homework2{  
-      product: string,
-      price: number
+  
+  let [변수1, 변수2] = ['안녕', 100]
+  console.log(변수1);
+
+  let {student, age} = {student : true, age:20}
+
+  function 함수({student, age} : {student: boolean, age: number}){
+    console.log(student, age);
   }
 
-  interface Homework3 extends Homework2{
-    card: boolean
-  }
-  interface Homework4{
+  함수({student, age});
 
-    plus : (a:number, b:number) => number;
-
-    minus : (a:number, b:number) => number;
-
+  const h1 = (...x: number[]) => {
+    let a = x.sort();
+    console.log(a[a.length - 1]);
+    // console.log(a[a.length - 1]);
   }
 
-  let h4:Homework4 = {
-    plus : (a, b) => {
-      return a + b;
-    },
-    minus : (a, b) => {
-      return a - b;
-    }
+  h1(6,3,7,2);
+
+  const h2 = ({user, comment, admin} : {user:string, comment:number[], admin:boolean}) => {
+    console.log(user);
+    console.log(...comment);
+    console.log(admin);
   }
 
-  console.log(h4.plus(1, 2));
-  console.log(h4.minus(1, 2));
-
-  let 상품:Shop = {brand : 'Samsung', serialNumber: 1360, model: ['TV', 'phone']};
-
-  let 장바구니:Homework2[] = [ { product : '청소기', price : 7000 }, { product : '삼다수', price : 800 } ] 
+  h2({user: 'kim', comment: [3, 5, 4], admin: false});
 
 
+  
+  const 함수1 = ([a, b, c]: (number | string | boolean)[]) => {
+    console.log(a, b, c);
+  }
+  
+  
+  함수1([40, 'wine', false]);
 
-  let 학생 : Student = {name : 'kim'};
-  let 선생 : Teacher =  {name : 'kim', age : 20};
 
   return (
     <div className="App">
