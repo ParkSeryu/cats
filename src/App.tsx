@@ -2,54 +2,63 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-class Car{
-  model;
-  price;
-  constructor(a:string, b:number){
-    this.model = a;
-    this.price = b;
-  }
+interface Square { color : string, width : number}
 
-  tax = () => {
-    return this.price / 10
-  }
+interface Student{
+  name : string
 }
 
-class Word{
-  num:number[] = [];
-  str:string[] = [];
-
-  constructor(...x : (number | string)[]){
-    x.map(ele => {
-      if(typeof ele === 'number'){
-        this.num.push(ele)
-      }else{
-        this.str.push(ele)
-      }
-    })
-  }
-
+interface Teacher extends Student{
+  age : number
 }
 
-let obj = new Word('kim', 3, 5, 'park');
-console.log(obj.num) //[3,5]
-console.log(obj.str) //['kim', 'park']
 
-let car1 = new Car('소나타', 3000)
-console.log(car1) //콘솔창 출력결과는 { model : '소나타', price : 3000 }
-console.log(car1.tax()) //콘솔창 출력결과는 300
+
+interface Shop {
+  brand: string,
+  serialNumber: number,
+  model : string[]
+}
 
 
 function App() {
 
-  class Person {
-    data = 0;
+  interface Homework2{  
+      product: string,
+      price: number
   }
 
-  let 사람1 = new Person();
-  let 사람2 = new Person();
+  interface Homework3 extends Homework2{
+    card: boolean
+  }
+  interface Homework4{
+
+    plus : (a:number, b:number) => number;
+
+    minus : (a:number, b:number) => number;
+
+  }
+
+  let h4:Homework4 = {
+    plus : (a, b) => {
+      return a + b;
+    },
+    minus : (a, b) => {
+      return a - b;
+    }
+  }
+
+  console.log(h4.plus(1, 2));
+  console.log(h4.minus(1, 2));
+
+  let 상품:Shop = {brand : 'Samsung', serialNumber: 1360, model: ['TV', 'phone']};
+
+  let 장바구니:Homework2[] = [ { product : '청소기', price : 7000 }, { product : '삼다수', price : 800 } ] 
 
 
+
+  let 학생 : Student = {name : 'kim'};
+  let 선생 : Teacher =  {name : 'kim', age : 20};
 
   return (
     <div className="App">
