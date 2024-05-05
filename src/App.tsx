@@ -31,7 +31,36 @@ function App() {
   let 테스트용변수 :HomeWorkType2 = {
     size : 123,
     position : [1,2,3]
-}
+  }
+
+  let 이름 : 123;
+  let 접니다 : '대머리' | '솔로';
+  접니다 = '대머리';
+
+  var 자료 = {
+    name : 'kim' as 'kim'
+  }
+
+  function 내함수(a: 'kim') {
+
+  }
+
+  내함수(자료.name)
+  
+
+  function 함수(a: 'hello'){
+
+  }
+  
+  함수('hello')
+
+  type AnyTest  = '가위' | '바위' | '보'
+
+  function 함수2(x: '가위' | '바위' | '보') : AnyTest[]{
+    return ['가위']
+  }
+  
+
 
   type Homework3 = { name : string, phone : number, email: string}
 
