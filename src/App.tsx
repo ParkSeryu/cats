@@ -4,42 +4,41 @@ import './App.css';
 
 function App() {
 
+  type Animal = {name: string, age : number};
 
-  const 클리닝함수 = (x: (number | string)[]) => {
+  let 동물: Animal = {name : 'kim', age : 20};
 
-    const returnArray: number[] = [];
-    
-    x.map((ele) => {
-      if(typeof ele === 'number')
-        {
-          returnArray.push(ele)
-        }else{
-          returnArray.push(parseInt(ele))
-        }
-    })
+  type Name = string;
+  type Age = number;
+  type Person = Name | Age;
 
+  type PositionX = {x: number};
+  type PositionY = {y : number};
+
+  type NewType = PositionX & PositionY;
+   
+  let position : NewType = { x : 10, y : 20};
+
+  type a = {x : number};
+  type b = {y : number};
+  let c : a & b = {x: 1, y: 2};
+
+  type HomeWorkType2 = {color? : 'string',
+  size : number,
+  readonly position : number[]
   }
 
+  let 테스트용변수 :HomeWorkType2 = {
+    size : 123,
+    position : [1,2,3]
+}
 
-  const 만들함수 = ( x : {subject : string[] | string}) => {
-    if(typeof x.subject === 'string'){
-      return x.subject;
-    }else{
-      return x.subject[0];
-    }
-  }
+  type Homework3 = { name : string, phone : number, email: string}
 
-
-console.log(만들함수( { subject : 'math' }))  //이 경우 'math'를 return
-console.log(만들함수( { subject : ['science', 'art', 'korean'] })) //이 경우 'korean'을 return
-// console.log(만들함수( { hello : 'hi' } ))  //이 경우 타입에러 나면 됩니다 
-
-  let array : number [] = [];
+  type Homework4 = Homework3 &  { aaa : boolean};
+  
 
 
-
-
-    
   return (
     <div className="App">
       <header className="App-header">
