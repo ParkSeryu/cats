@@ -4,42 +4,36 @@ import './App.css';
 
 function App() {
 
-  
-  let [변수1, 변수2] = ['안녕', 100]
-  console.log(변수1);
+  type Fish = {swim : string}
+  type Bird = {fly : string}
 
-  let {student, age} = {student : true, age:20}
-
-  function 함수({student, age} : {student: boolean, age: number}){
-    console.log(student, age);
+  function 함수(animal : Fish | Bird){
+    if('swim' in animal) {
+      animal.swim
+    }
   }
 
-  함수({student, age});
+  let 날짜 = new Date();
+  if (날짜 instanceof Date){
 
-  const h1 = (...x: number[]) => {
-    let a = x.sort();
-    console.log(a[a.length - 1]);
-    // console.log(a[a.length - 1]);
-  }
-
-  h1(6,3,7,2);
-
-  const h2 = ({user, comment, admin} : {user:string, comment:number[], admin:boolean}) => {
-    console.log(user);
-    console.log(...comment);
-    console.log(admin);
-  }
-
-  h2({user: 'kim', comment: [3, 5, 4], admin: false});
-
-
-  
-  const 함수1 = ([a, b, c]: (number | string | boolean)[]) => {
-    console.log(a, b, c);
   }
   
-  
-  함수1([40, 'wine', false]);
+  type Car = {
+    model : 4;
+    wheel : '4개',
+    color: string
+  }
+
+  type Bike = {
+    wheel : '2개',
+    color: string
+  }
+
+  function 함수(x: Car | Bike){
+    if(x.wheel === '4개'){
+      console.log('x는 Car 타입이에요')
+    }
+  }
 
 
   return (
