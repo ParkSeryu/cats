@@ -4,19 +4,20 @@ import './App.css';
 
 function App() {
 
-  function 함수(parameter : string){
-    if(typeof parameter == 'string'){
-      console.log(parameter)
-    }else{
-      console.log(parameter) // never
+  class User{
+    private name = 'kim';
+    private familyName:string = 'kim';
+    constructor(a : string){
+      this.name = a + this.familyName
     }
 
-    let 함수 = function() {
-      throw new Error()
+    이름변경함수(){
+      this.familyName = 'park';
     }
-
   }
 
+  let 유저1 = new User('park')
+  유저1.name = '안뇽'
 
 
   return (
