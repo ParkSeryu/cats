@@ -4,20 +4,23 @@ import './App.css';
 
 function App() {
 
-  class User{
-    private name = 'kim';
-    private familyName:string = 'kim';
-    constructor(a : string){
-      this.name = a + this.familyName
-    }
-
-    이름변경함수(){
-      this.familyName = 'park';
-    }
+  class User { 
+    static x = 10;
+    y = 20;
   }
 
-  let 유저1 = new User('park')
-  유저1.name = '안뇽'
+  let 자식 = new User();
+  console.log(자식.y);
+
+  class User2 {
+    static skill = 'js';
+    intro = User2.skill + '전문가입니다';
+  }
+
+  User2.skill = 'ts';
+
+  let 철수 = new User();
+  console.log(철수);
 
 
   return (
