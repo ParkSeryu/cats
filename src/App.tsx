@@ -2,6 +2,19 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+export type Car = {
+  wheel : number,
+  model : string
+}
+export interface Bike {
+  wheel : 2,
+  model : string
+}
+
+export const 숙제 = (p : object) : void => {
+
+}
+
 function App() {
 
   class User {
