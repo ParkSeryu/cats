@@ -4,6 +4,12 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+namespace 네임스페이스 {
+  export type Name = string | number;
+}
+
+let 문법 : 네임스페이스.Name
+
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );

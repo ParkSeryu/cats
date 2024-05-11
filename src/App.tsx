@@ -4,23 +4,23 @@ import './App.css';
 
 function App() {
 
-  class User { 
-    static x = 10;
-    y = 20;
+  class User {
+    private static x = 10;
+    public static y = 20;
+
+    static addOne(num: number){
+      User.x += num;
+    }
+
+    static printX(){
+      console.log(User.x);
+    }
   }
 
-  let 자식 = new User();
-  console.log(자식.y);
 
-  class User2 {
-    static skill = 'js';
-    intro = User2.skill + '전문가입니다';
-  }
-
-  User2.skill = 'ts';
-
-  let 철수 = new User();
-  console.log(철수);
+  User.addOne(3) //이렇게 하면 x가 3 더해져야함
+  User.addOne(4) //이렇게 하면 x가 4 더해져야함
+  User.printX()  //이렇게 하면 콘솔창에 x값이 출력되어야함
 
 
   return (
