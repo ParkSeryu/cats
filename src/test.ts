@@ -1,52 +1,24 @@
-interface StringOnly {
-    [key: string] : string | number, // 모든 문자로 된 속성
+type Car = {
+    color : boolean,
+    model : boolean,
+    price : boolean | number
 }
 
-let user: StringOnly = {
-    name : 'kim',
-    123: 'test',
-    location : 'seoul'
+type TypeChanger<MyType> = {
+    [key in keyof MyType] : string
+};
+
+type 새로운타입 = TypeChanger<Car>
+
+type Bus = {
+  color : string,
+  model : boolean,
+  price : number
 }
 
-console.log(user[123]);
+type TypeChanger <MyType, T> = {
+  [key in keyof MyType]: T;
+};
 
-interface MyType { 
-    'font-size' : MyType | number
-}
-
-let css : MyType = {
-    'font-size' : {
-        'font-size' : {
-            'font-size' : 14
-        }
-    }
-}
-
-interface H1 {
-    [kiss: string] : string | number;
-}
-
-
-let obj :H1 = {
-    model : 'k5',
-    brand : 'kia',
-    price : 6000,
-    year : 2030,
-    date : '6월',
-    percent : '5%',
-    dealer : '김차장',
-  };
-
-interface H2 {
-    [key: string] : number | H2,
-} 
-
-let obj2: H2 = {
-    'font-size' : 10,
-    'secondary' : {
-      'font-size' : 12,
-      'third' : {
-        'font-size' : 14
-      }
-    }
-  }
+type NewBus = TypeChanger<Bus, boolean>;
+type NewBus2 = TypeChanger<Bus, string[]>
